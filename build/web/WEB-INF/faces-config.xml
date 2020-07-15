@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="1.2" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+    <application>
+        <el-resolver>jsf.util.JsfResolver</el-resolver>
+    </application>
+     <navigation-rule>
+        <from-view-id>/faces/home</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.jsp</to-view-id>
+        </navigation-case>
+   </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>solicitudForm</from-outcome>
+            <to-view-id>/pages/solicitudes/nuevaSolicitudForm.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>customer</managed-bean-name>
+        <managed-bean-class>jsf.ClienteController</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>customerJpa</managed-bean-name>
+        <managed-bean-class>jpa.controllers.ClienteJpaController</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <converter>
+        <converter-for-class>jpa.entities.Cliente</converter-for-class>
+        <converter-class>jsf.ClienteConverter</converter-class>
+    </converter>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_create</from-outcome>
+            <to-view-id>/pages/customer/New.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_list</from-outcome>
+            <to-view-id>/pages/customer/List.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_edit</from-outcome>
+            <to-view-id>/pages/customer/Edit.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_detail</from-outcome>
+            <to-view-id>/pages/customer/Detail.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
